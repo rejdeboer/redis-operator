@@ -8,7 +8,7 @@ metadata:
   name: cluster-viewer-role
 rules:
 - apiGroups:
-  - rejdeboer.com.github.com
+  - app.rejdeboer.com
   resources:
   - clusters
   verbs:
@@ -16,7 +16,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - rejdeboer.com.github.com
+  - app.rejdeboer.com
   resources:
   - clusters/status
   verbs:

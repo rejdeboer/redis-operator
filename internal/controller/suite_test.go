@@ -33,7 +33,7 @@ import (
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	rejdeboercomv1 "github.com/rejdeboer/redis-operator/api/v1"
+	appv1 "github.com/rejdeboer/redis-operator/api/v1"
 	// +kubebuilder:scaffold:imports
 )
 
@@ -77,7 +77,7 @@ var _ = BeforeSuite(func() {
 	Expect(err).NotTo(HaveOccurred())
 	Expect(cfg).NotTo(BeNil())
 
-	err = rejdeboercomv1.AddToScheme(scheme.Scheme)
+	err = appv1.AddToScheme(scheme.Scheme)
 	Expect(err).NotTo(HaveOccurred())
 
 	// +kubebuilder:scaffold:scheme

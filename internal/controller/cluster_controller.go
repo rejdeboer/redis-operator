@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	rejdeboercomv1 "github.com/rejdeboer/redis-operator/api/v1"
+	appv1 "github.com/rejdeboer/redis-operator/api/v1"
 )
 
 // ClusterReconciler reconciles a Cluster object
@@ -33,9 +33,9 @@ type ClusterReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-// +kubebuilder:rbac:groups=rejdeboer.com.github.com,resources=clusters,verbs=get;list;watch;create;update;patch;delete
-// +kubebuilder:rbac:groups=rejdeboer.com.github.com,resources=clusters/status,verbs=get;update;patch
-// +kubebuilder:rbac:groups=rejdeboer.com.github.com,resources=clusters/finalizers,verbs=update
+// +kubebuilder:rbac:groups=app.rejdeboer.com,resources=clusters,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups=app.rejdeboer.com,resources=clusters/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=app.rejdeboer.com,resources=clusters/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -57,7 +57,7 @@ func (r *ClusterReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 // SetupWithManager sets up the controller with the Manager.
 func (r *ClusterReconciler) SetupWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewControllerManagedBy(mgr).
-		For(&rejdeboercomv1.Cluster{}).
+		For(&appv1.Cluster{}).
 		Named("cluster").
 		Complete(r)
 }

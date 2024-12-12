@@ -2,7 +2,7 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-domain: github.com
+domain: rejdeboer.com
 layout:
 - go.kubebuilder.io/v4
 projectName: redis-operator
@@ -12,8 +12,8 @@ resources:
     crdVersion: v1
     namespaced: true
   controller: true
-  domain: github.com
-  group: rejdeboer.com
+  domain: rejdeboer.com
+  group: app
   kind: Cluster
   path: github.com/rejdeboer/redis-operator/api/v1
   version: v1

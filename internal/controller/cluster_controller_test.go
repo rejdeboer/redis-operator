@@ -27,7 +27,7 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	rejdeboercomv1 "github.com/rejdeboer/redis-operator/api/v1"
+	appv1 "github.com/rejdeboer/redis-operator/api/v1"
 )
 
 var _ = Describe("Cluster Controller", func() {
@@ -40,13 +40,13 @@ var _ = Describe("Cluster Controller", func() {
 			Name:      resourceName,
 			Namespace: "default", // TODO(user):Modify as needed
 		}
-		cluster := &rejdeboercomv1.Cluster{}
+		cluster := &appv1.Cluster{}
 
 		BeforeEach(func() {
 			By("creating the custom resource for the Kind Cluster")
 			err := k8sClient.Get(ctx, typeNamespacedName, cluster)
 			if err != nil && errors.IsNotFound(err) {
-				resource := &rejdeboercomv1.Cluster{
+				resource := &appv1.Cluster{
 					ObjectMeta: metav1.ObjectMeta{
 						Name:      resourceName,
 						Namespace: "default",
@@ -59,7 +59,7 @@ var _ = Describe("Cluster Controller", func() {
 
 		AfterEach(func() {
 			// TODO(user): Cleanup logic after each test, like removing the resource instance.
-			resource := &rejdeboercomv1.Cluster{}
+			resource := &appv1.Cluster{}
 			err := k8sClient.Get(ctx, typeNamespacedName, resource)
 			Expect(err).NotTo(HaveOccurred())
 

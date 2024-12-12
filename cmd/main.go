@@ -35,7 +35,7 @@ import (
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 
-	rejdeboercomv1 "github.com/rejdeboer/redis-operator/api/v1"
+	appv1 "github.com/rejdeboer/redis-operator/api/v1"
 	"github.com/rejdeboer/redis-operator/internal/controller"
 	// +kubebuilder:scaffold:imports
 )
@@ -48,7 +48,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(rejdeboercomv1.AddToScheme(scheme))
+	utilruntime.Must(appv1.AddToScheme(scheme))
 	// +kubebuilder:scaffold:scheme
 }
 
@@ -124,7 +124,7 @@ func main() {
 		WebhookServer:          webhookServer,
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "acd36c5f.github.com",
+		LeaderElectionID:       "acd36c5f.rejdeboer.com",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly

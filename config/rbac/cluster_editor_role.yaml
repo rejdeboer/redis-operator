@@ -8,7 +8,7 @@ metadata:
   name: cluster-editor-role
 rules:
 - apiGroups:
-  - rejdeboer.com.github.com
+  - app.rejdeboer.com
   resources:
   - clusters
   verbs:
@@ -20,7 +20,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - rejdeboer.com.github.com
+  - app.rejdeboer.com
   resources:
   - clusters/status
   verbs:

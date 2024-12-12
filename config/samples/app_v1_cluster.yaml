@@ -1,4 +1,4 @@
-apiVersion: rejdeboer.com.github.com/v1
+apiVersion: app.rejdeboer.com/v1
 kind: Cluster
 metadata:
   labels:
